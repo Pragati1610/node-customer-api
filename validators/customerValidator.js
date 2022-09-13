@@ -1,5 +1,10 @@
 const { body, param } = require("express-validator");
 
+const customDateValidator = (date) => {
+    const dateRegex = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
+    return date.match(dateRegex);
+};
+
 const customerCreateValidator = [
     body("name")
     .exists({ checkFalsy: true })
@@ -18,10 +23,11 @@ const customerCreateValidator = [
     .withMessage("email must be string."),
     body("birthdate")
     .exists({ checkFalsy: true })
-    .withMessage("birthdate is required."),
-    // .trim()
-    // .isDate()
-    // .withMessage("birthdate must be a valid date."),
+    .withMessage("birthdate is required.")
+    .custom((val) => customDateValidator(val))
+    .withMessage(
+        "birthdate provided should be of the following format: MM/DD/YYYY ([/ or . or -] can be the separators)"
+    ),
 ];
 
 const customerUpdateValidator = [
