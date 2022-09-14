@@ -24,7 +24,7 @@ const customerCreateValidator = [
     body("birthdate")
     .exists({ checkFalsy: true })
     .withMessage("birthdate is required.")
-    .custom((val) => customDateValidator(val))
+    .custom(customDateValidator)
     .withMessage(
         "birthdate provided should be of the following format: MM/DD/YYYY ([/ or . or -] can be the separators)"
     ),
