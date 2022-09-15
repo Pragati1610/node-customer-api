@@ -13,6 +13,17 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      DB_DATABASE: ${{secrets.DB_DATABASE}}
+      DB_USER: ${{secrets.DB_USER}}
+      DB_PASS: ${{secrets.DB_PASS}}
+      DB_HOST: ${{secrets.DB_HOST}}
+      DB_PORT: ${{secrets.DB_PORT}}
+      PORT: ${{secrets.PORT}}
+      SYNC: ${{secrets.SYNC}}
+      RATE_LIMITTING_TIME: ${{secrets.RATE_LIMITTING_TIME}}
+      RATE_LIMITTING_MAX: ${{secrets.RATE_LIMITTING_MAX}}
+      TESTING_URL: ${{secrets.TESTING_URL}}
 
     strategy:
       matrix:
