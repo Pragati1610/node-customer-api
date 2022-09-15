@@ -1,14 +1,12 @@
 version: "3.8"
 
 services:
-  customer-api:
+  customer_api:
     build:
       context: .
     ports:
       - 8080:8080
       - 9229:9229
-    environment:
-      - PORT=8080
     volumes:
       - ./:/server
     command: npm run debug
