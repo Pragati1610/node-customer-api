@@ -71,5 +71,3 @@ npm test
 ```
 
 will then run all the tests with `mocha` as a test runner.
-
-Note that this add data to your local database.
