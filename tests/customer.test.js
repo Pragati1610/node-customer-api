@@ -1,9 +1,6 @@
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 chai.use(chaiHttp);
-const { Customer } = require("../models/relations");
-
-const assert = chai.assert;
 const expect = chai.expect;
 
 const { describe, it } = require("mocha");
@@ -15,9 +12,17 @@ const {
     invalidUpdateCustomerData,
 } = require("./testData");
 
+const app = require("../app");
+const http = require("http");
+const PORT = process.env.PORT || 8080;
+const server = http.createServer(app);
 let id = "";
 
 describe("Customer CRUD", () => {
+    before((done) => {
+        server.listen(PORT, done);
+    });
+
     describe("Create customer", () => {
         it("should create customer asynchronously", async() => {
             const res = await chai
@@ -86,5 +91,8 @@ describe("Customer CRUD", () => {
 
             expect(res).to.have.status(200);
         }).timeout(10000);
+    });
+    after((done) => {
+        server.close(done);
     });
 });
