@@ -72,16 +72,10 @@ npm test
 
 will then run all the tests with `mocha` as a test runner.
 
-Note that this add data to your local database.
+Note that this adds data to your local database.
 
 ## 3.2. Testing with docker-compose
-
-Running
 
 ```
 docker-compose -f docker-compose.dev.yml run customer_api npm run test
 ```
-
-will then run all the tests with `mocha` as a test runner.
-
-Note that this add data to your local database.
