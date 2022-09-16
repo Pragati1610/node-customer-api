@@ -62,12 +62,24 @@ I.e. if you start up the container again, the database will contain the data you
 
 # 3 Testing
 
-## 3.1. Testing with docker-compose
+## 3.1. Testing with npm
 
 Running
 
 ```
 npm test
+```
+
+will then run all the tests with `mocha` as a test runner.
+
+Note that this add data to your local database.
+
+## 3.2. Testing with docker-compose
+
+Running
+
+```
+docker-compose -f docker-compose.dev.yml run customer_api npm run test
 ```
 
 will then run all the tests with `mocha` as a test runner.
