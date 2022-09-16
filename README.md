@@ -16,7 +16,7 @@ Make sure to update the app with your database credentials in the `.env` file by
 
 ## 2.2. Running with docker compose
 
-### docker-compose up
+### 2.2.1 docker-compose up
 
 Running:
 
